@@ -2,37 +2,22 @@ package com.lftechnology.sample.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "user")
 public class User {
 
     private String username;
+    @Column(name = "password", nullable = false, length = 60)
     private String password;
-    private boolean enabled;
-    private Set<UserRole> userRole = new HashSet<UserRole>(0);
+    private String email;
+    private boolean status;
 
-    public User() {
-    }
-
-    public User(String username, String password, boolean enabled) {
-        this.username = username;
-        this.password = password;
-        this.enabled = enabled;
-    }
-
-    public User(String username, String password, boolean enabled, Set<UserRole> userRole) {
-        this.username = username;
-        this.password = password;
-        this.enabled = enabled;
-        this.userRole = userRole;
-    }
+    @ManyToOne
+    private Role role;
 
     @Id
     @Column(name = "user_name", unique = true, nullable = false, length = 45)
@@ -44,7 +29,6 @@ public class User {
         this.username = username;
     }
 
-    @Column(name = "password", nullable = false, length = 60)
     public String getPassword() {
         return this.password;
     }
@@ -53,22 +37,27 @@ public class User {
         this.password = password;
     }
 
-    @Column(name = "enabled", nullable = false)
-    public boolean isEnabled() {
-        return this.enabled;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    public Set<UserRole> getUserRole() {
-        return this.userRole;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setUserRole(Set<UserRole> userRole) {
-        this.userRole = userRole;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 }
