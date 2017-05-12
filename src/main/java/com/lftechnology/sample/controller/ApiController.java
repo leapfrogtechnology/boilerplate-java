@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -31,12 +30,5 @@ public class ApiController {
         } else {
             throw new ApiException("Person not exist", HttpStatus.NOT_FOUND);
         }
-    }
-
-    @RequestMapping(method = RequestMethod.POST, value = "/user")
-    public HashMap<String, Object> addPerson(@RequestParam(value = "name", required = true) String name,
-            @RequestParam(value = "country", required = false) String country) {
-        HashMap<String, Object> response = new HashMap<>();
-        return null;
     }
 }
