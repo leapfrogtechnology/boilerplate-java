@@ -11,3 +11,4 @@ target
 *.war
 *.ear
 /src/main/resources/persistence.xml
+.DS_Store
