@@ -3,11 +3,10 @@ package com.lftechnology.sample.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
     private String username;
@@ -16,8 +15,8 @@ public class User {
     private String email;
     private boolean status;
 
-    @ManyToOne
-    private Role role;
+    // @ManyToOne
+    // private Role role;
 
     @Id
     @Column(name = "user_name", unique = true, nullable = false, length = 45)
@@ -53,11 +52,11 @@ public class User {
         this.status = status;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
+    // public Role getRole() {
+    // return role;
+    // }
+    //
+    // public void setRole(Role role) {
+    // this.role = role;
+    // }
 }

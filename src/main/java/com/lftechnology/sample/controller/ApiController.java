@@ -1,8 +1,7 @@
 package com.lftechnology.sample.controller;
 
-import com.lftechnology.sample.exception.ApiException;
-import com.lftechnology.sample.model.User;
-import com.lftechnology.sample.service.UserService;
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
+import com.lftechnology.sample.exception.ApiException;
+import com.lftechnology.sample.model.User;
+import com.lftechnology.sample.service.UserService;
 
 @RestController
 @RequestMapping("/api")
